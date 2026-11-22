@@ -1,0 +1,189 @@
+{
+  "splits": {
+    "validation_tasks": 90,
+    "validation_usable": 90,
+    "test_tasks": 500,
+    "test_usable": 499
+  },
+  "n_test_responses": 3463,
+  "thresholds": {
+    "text": 0.5,
+    "hg": 0.4,
+    "struct_only": 0.35
+  },
+  "methods": {
+    "B1 code-presence rule (>=3 code lines)": {
+      "TP": 1435,
+      "FN": 32,
+      "FP": 1024,
+      "TN": 972,
+      "precision": 0.5835705571370475,
+      "recall": 0.978186775732788,
+      "F1": 0.7310239429444727,
+      "FPR": 0.5130260521042084,
+      "accuracy": 0.6950620848974878
+    },
+    "B2 text similarity (tau=0.50)": {
+      "TP": 1277,
+      "FN": 190,
+      "FP": 71,
+      "TN": 1925,
+      "precision": 0.9473293768545994,
+      "recall": 0.8704839809134287,
+      "F1": 0.9072824156305506,
+      "FPR": 0.03557114228456914,
+      "accuracy": 0.9246318221195495
+    },
+    "HG-a execution check only": {
+      "TP": 994,
+      "FN": 473,
+      "FP": 0,
+      "TN": 1996,
+      "precision": 1.0,
+      "recall": 0.6775732788002726,
+      "F1": 0.8078017066233238,
+      "FPR": 0.0,
+      "accuracy": 0.8634132255269997
+    },
+    "HG-b structural similarity only (tau=0.35)": {
+      "TP": 1443,
+      "FN": 24,
+      "FP": 35,
+      "TN": 1961,
+      "precision": 0.976319350473613,
+      "recall": 0.983640081799591,
+      "F1": 0.9799660441426146,
+      "FPR": 0.01753507014028056,
+      "accuracy": 0.9829627490615074
+    },
+    "HintGuard: execution OR structure (tau=0.40)": {
+      "TP": 1440,
+      "FN": 27,
+      "FP": 16,
+      "TN": 1980,
+      "precision": 0.989010989010989,
+      "recall": 0.9815950920245399,
+      "F1": 0.9852890865549093,
+      "FPR": 0.008016032064128256,
+      "accuracy": 0.9875830205024545
+    }
+  },
+  "flag_rate_by_category": {
+    "B1 code-presence rule (>=3 code lines)": {
+      "full": 0.9398797595190381,
+      "disguised": 0.9959919839679359,
+      "partial": 1.0,
+      "hint": 0.0,
+      "hint_snippet": 0.10420841683366733,
+      "skeleton": 1.0,
+      "other_solution": 0.9478957915831663
+    },
+    "B2 text similarity (tau=0.50)": {
+      "full": 1.0,
+      "disguised": 0.6192384769539078,
+      "partial": 1.0,
+      "hint": 0.0,
+      "hint_snippet": 0.018036072144288578,
+      "skeleton": 0.08817635270541083,
+      "other_solution": 0.036072144288577156
+    },
+    "HG-a execution check only": {
+      "full": 0.9979959919839679,
+      "disguised": 0.9879759519038076,
+      "partial": 0.006396588486140725,
+      "hint": 0.0,
+      "hint_snippet": 0.0,
+      "skeleton": 0.0,
+      "other_solution": 0.0
+    },
+    "HG-b structural similarity only (tau=0.35)": {
+      "full": 1.0,
+      "disguised": 0.9859719438877755,
+      "partial": 0.9637526652452025,
+      "hint": 0.0,
+      "hint_snippet": 0.004008016032064128,
+      "skeleton": 0.02004008016032064,
+      "other_solution": 0.04609218436873747
+    },
+    "HintGuard: execution OR structure (tau=0.40)": {
+      "full": 1.0,
+      "disguised": 0.9939879759519038,
+      "partial": 0.9488272921108742,
+      "hint": 0.0,
+      "hint_snippet": 0.002004008016032064,
+      "skeleton": 0.004008016032064128,
+      "other_solution": 0.026052104208416832
+    }
+  },
+  "methods_lenient_policy": {
+    "B1 code-presence rule (>=3 code lines)": {
+      "TP": 966,
+      "FN": 32,
+      "FP": 1024,
+      "TN": 972,
+      "precision": 0.48542713567839196,
+      "recall": 0.9679358717434869,
+      "F1": 0.646586345381526,
+      "FPR": 0.5130260521042084,
+      "accuracy": 0.6472945891783567
+    },
+    "B2 text similarity (tau=0.50)": {
+      "TP": 808,
+      "FN": 190,
+      "FP": 71,
+      "TN": 1925,
+      "precision": 0.919226393629124,
+      "recall": 0.8096192384769539,
+      "F1": 0.8609483217900906,
+      "FPR": 0.03557114228456914,
+      "accuracy": 0.9128256513026052
+    },
+    "HG-a execution check only": {
+      "TP": 991,
+      "FN": 7,
+      "FP": 0,
+      "TN": 1996,
+      "precision": 1.0,
+      "recall": 0.9929859719438878,
+      "F1": 0.9964806435394671,
+      "FPR": 0.0,
+      "accuracy": 0.9976619906479626
+    },
+    "HG-b structural similarity only (tau=0.35)": {
+      "TP": 991,
+      "FN": 7,
+      "FP": 35,
+      "TN": 1961,
+      "precision": 0.9658869395711501,
+      "recall": 0.9929859719438878,
+      "F1": 0.9792490118577075,
+      "FPR": 0.01753507014028056,
+      "accuracy": 0.9859719438877755
+    },
+    "HintGuard: execution OR structure (tau=0.40)": {
+      "TP": 995,
+      "FN": 3,
+      "FP": 16,
+      "TN": 1980,
+      "precision": 0.9841740850642928,
+      "recall": 0.996993987975952,
+      "F1": 0.9905425584868094,
+      "FPR": 0.008016032064128256,
+      "accuracy": 0.9936539746158984
+    }
+  },
+  "count_by_category": {
+    "full": 499,
+    "disguised": 499,
+    "partial": 469,
+    "hint": 499,
+    "hint_snippet": 499,
+    "skeleton": 499,
+    "other_solution": 499
+  },
+  "latency_ms": {
+    "median": 64.68507699997872,
+    "p95": 169.47461899997052,
+    "max": 4036.0715859999914
+  }
+}
