@@ -7,7 +7,7 @@ import argparse
 import json
 import sys
 
-from hintguard import core
+import core
 
 EXAMPLES = {
     "A. Hint only": (
@@ -27,7 +27,7 @@ EXAMPLES = {
 
 
 def load(task_id):
-    for line in open("data/mbpp.jsonl", encoding="utf-8"):
+    for line in open("mbpp.jsonl", encoding="utf-8"):
         r = json.loads(line)
         if r["task_id"] == task_id:
             return r

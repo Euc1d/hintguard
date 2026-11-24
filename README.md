@@ -13,31 +13,32 @@ A response is a leak if (1) passes **or** (2) ≥ τ (τ = 0.40, tuned on the va
 ```bash
 python demo.py                    # four example tutor answers for MBPP task 66
 python demo.py --task 66 --paste  # check your own answer
-python experiment.py              # full experiment, about 1-2 minutes, writes results/
+python experiment.py              # full experiment, about 1-2 minutes, writes results.json
 ```
-Only the Python standard library is needed (Python ≥ 3.9). `figs` in the report were made with matplotlib.
-In Google Colab: open `demo.ipynb` from this repository and run all cells.
+Only the Python standard library is needed (Python >= 3.9).
+In Google Colab: https://colab.research.google.com/github/Euc1d/hintguard/blob/main/demo.ipynb → *Runtime → Run all*.
+
+## Files
+`core.py`: the guard (code extraction, execution check, structural check) · `variants.py`: generation of the seven tutor-response types · `experiment.py`: the simulated study · `demo.py`: demo used in the video · `demo.ipynb`: Colab notebook · `mbpp.jsonl`: MBPP dataset · `results.json`, `scores_test.csv`, `run_log.txt`: results.
 
 ## Experiment (simulated study, TRL 4)
 * Data: MBPP (Austin et al., 2021, CC BY 4.0), 499 test exercises (tasks 11–510) and 90 validation exercises (tasks 511–600) whose reference solution passes its own tests.
 * For every exercise seven tutor-response types are generated: **leaks**: full solution, disguised solution (all identifiers renamed, reformatted, no code fence), partial solution (first half of the lines); **safe help**: text hint, hint + unrelated code example, skeleton with comments, full solution of a *different* exercise.
-* Policy (strict): no solution code, complete or partial. 3463 test responses.
+* Policy (strict): no solution code, complete or partial. 3,463 test responses. The run is deterministic (fixed seeds, 10 s test time limit).
 
 | Method | Precision | Recall | F1 | False positive rate |
 |---|---|---|---|---|
-| B1 code-presence rule (>=3 code lines) | 0.584 | 0.978 | 0.731 | 0.513 |
-| B2 text similarity (tau=0.50) | 0.947 | 0.870 | 0.907 | 0.036 |
-| HG-a execution check only | 1.000 | 0.678 | 0.808 | 0.000 |
-| HG-b structural similarity only (tau=0.35) | 0.976 | 0.984 | 0.980 | 0.018 |
-| HintGuard: execution OR structure (tau=0.40) | 0.989 | 0.982 | 0.985 | 0.008 |
+| B1 code-presence rule (>=3 code lines) | 0.585 | 0.978 | 0.733 | 0.509 |
+| B2 text similarity (tau=0.50) | 0.945 | 0.870 | 0.906 | 0.038 |
+| HG-a execution check only | 0.998 | 0.678 | 0.807 | 0.001 |
+| HG-b structural similarity only (tau=0.35) | 0.978 | 0.984 | 0.981 | 0.017 |
+| HintGuard: execution OR structure (tau=0.40) | 0.991 | 0.982 | 0.986 | 0.007 |
 
-Median latency of HintGuard: 65 ms per response (p95 169 ms; max 4.0 s when a response hits the 4 s test timeout).
-
-All numbers: `results/results.json`; per-response scores: `results/scores_test.csv`.
+Median latency of HintGuard: 60 ms per response (p95 137 ms); 18 responses with slow code took more than 4 s (limit 10 s).
 
 ## Known limitations (v0.1)
 * Responses are generated from benchmark solutions, not collected from real LLM tutors; the next step (TRL 5) is a corpus of real tutor answers.
-* Very short reference solutions (1–3 lines) cause most false positives, because generic code shares their structure.
+* 6 of the 13 false positives come from very short reference solutions (1–3 lines); 2 are solutions of another sorting exercise that also pass the target exercise's tests.
 * Unfenced code with blank lines inside a function is split by the extractor (3 missed disguised leaks); fixed extraction is planned for v0.2.
 * The execution check runs untrusted code: in production it must run in an isolated sandbox (container without network).
 

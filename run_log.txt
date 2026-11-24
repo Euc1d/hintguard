@@ -60,20 +60,20 @@
 <unknown>:3: SyntaxWarning: invalid escape sequence '\.'
 <unknown>:3: SyntaxWarning: invalid escape sequence '\w'
 <unknown>:3: SyntaxWarning: invalid escape sequence '\w'
+<unknown>:3: SyntaxWarning: invalid escape sequence '\w'
 <unknown>:3: SyntaxWarning: invalid escape sequence '\*'
 <unknown>:3: SyntaxWarning: invalid escape sequence '\W'
 <unknown>:3: SyntaxWarning: invalid escape sequence '\W'
+<unknown>:3: SyntaxWarning: invalid escape sequence '\*'
+<unknown>:3: SyntaxWarning: invalid escape sequence '\w'
+<unknown>:4: SyntaxWarning: invalid escape sequence '\w'
+<unknown>:3: SyntaxWarning: invalid escape sequence '\w'
 <unknown>:3: SyntaxWarning: invalid escape sequence '\W'
 <unknown>:3: SyntaxWarning: invalid escape sequence '\W'
 <unknown>:3: SyntaxWarning: invalid escape sequence '\w'
 <unknown>:3: SyntaxWarning: invalid escape sequence '\w'
-<unknown>:3: SyntaxWarning: invalid escape sequence '\w'
-<unknown>:3: SyntaxWarning: invalid escape sequence '\w'
-<unknown>:3: SyntaxWarning: invalid escape sequence '\w'
-<unknown>:3: SyntaxWarning: invalid escape sequence '\w'
 <unknown>:4: SyntaxWarning: invalid escape sequence '\w'
 <unknown>:4: SyntaxWarning: invalid escape sequence '\w'
-<unknown>:3: SyntaxWarning: invalid escape sequence '\w'
 <unknown>:3: SyntaxWarning: invalid escape sequence '\w'
 <unknown>:3: SyntaxWarning: invalid escape sequence '\w'
 <unknown>:3: SyntaxWarning: invalid escape sequence '\w'
@@ -96,57 +96,57 @@
     "B1 code-presence rule (>=3 code lines)": {
       "TP": 1435,
       "FN": 32,
-      "FP": 1024,
-      "TN": 972,
-      "precision": 0.5835705571370475,
+      "FP": 1016,
+      "TN": 980,
+      "precision": 0.5854753161974704,
       "recall": 0.978186775732788,
-      "F1": 0.7310239429444727,
-      "FPR": 0.5130260521042084,
-      "accuracy": 0.6950620848974878
+      "F1": 0.7325165900969882,
+      "FPR": 0.5090180360721442,
+      "accuracy": 0.6973722206179613
     },
     "B2 text similarity (tau=0.50)": {
       "TP": 1277,
       "FN": 190,
-      "FP": 71,
-      "TN": 1925,
-      "precision": 0.9473293768545994,
+      "FP": 75,
+      "TN": 1921,
+      "precision": 0.9445266272189349,
       "recall": 0.8704839809134287,
-      "F1": 0.9072824156305506,
-      "FPR": 0.03557114228456914,
-      "accuracy": 0.9246318221195495
+      "F1": 0.9059950336998935,
+      "FPR": 0.037575150300601205,
+      "accuracy": 0.9234767542593127
     },
     "HG-a execution check only": {
       "TP": 994,
       "FN": 473,
-      "FP": 0,
-      "TN": 1996,
-      "precision": 1.0,
+      "FP": 2,
+      "TN": 1994,
+      "precision": 0.9979919678714859,
       "recall": 0.6775732788002726,
-      "F1": 0.8078017066233238,
-      "FPR": 0.0,
-      "accuracy": 0.8634132255269997
+      "F1": 0.8071457572066586,
+      "FPR": 0.001002004008016032,
+      "accuracy": 0.8628356915968813
     },
     "HG-b structural similarity only (tau=0.35)": {
       "TP": 1443,
       "FN": 24,
-      "FP": 35,
-      "TN": 1961,
-      "precision": 0.976319350473613,
+      "FP": 33,
+      "TN": 1963,
+      "precision": 0.9776422764227642,
       "recall": 0.983640081799591,
-      "F1": 0.9799660441426146,
-      "FPR": 0.01753507014028056,
-      "accuracy": 0.9829627490615074
+      "F1": 0.9806320081549439,
+      "FPR": 0.016533066132264528,
+      "accuracy": 0.9835402829916258
     },
     "HintGuard: execution OR structure (tau=0.40)": {
       "TP": 1440,
       "FN": 27,
-      "FP": 16,
-      "TN": 1980,
-      "precision": 0.989010989010989,
+      "FP": 13,
+      "TN": 1983,
+      "precision": 0.9910529938059188,
       "recall": 0.9815950920245399,
-      "F1": 0.9852890865549093,
-      "FPR": 0.008016032064128256,
-      "accuracy": 0.9875830205024545
+      "F1": 0.9863013698630136,
+      "FPR": 0.006513026052104208,
+      "accuracy": 0.9884493213976321
     }
   },
   "flag_rate_by_category": {
@@ -157,7 +157,7 @@
       "hint": 0.0,
       "hint_snippet": 0.10420841683366733,
       "skeleton": 1.0,
-      "other_solution": 0.9478957915831663
+      "other_solution": 0.9318637274549099
     },
     "B2 text similarity (tau=0.50)": {
       "full": 1.0,
@@ -166,7 +166,7 @@
       "hint": 0.0,
       "hint_snippet": 0.018036072144288578,
       "skeleton": 0.08817635270541083,
-      "other_solution": 0.036072144288577156
+      "other_solution": 0.04408817635270541
     },
     "HG-a execution check only": {
       "full": 0.9979959919839679,
@@ -175,7 +175,7 @@
       "hint": 0.0,
       "hint_snippet": 0.0,
       "skeleton": 0.0,
-      "other_solution": 0.0
+      "other_solution": 0.004008016032064128
     },
     "HG-b structural similarity only (tau=0.35)": {
       "full": 1.0,
@@ -184,7 +184,7 @@
       "hint": 0.0,
       "hint_snippet": 0.004008016032064128,
       "skeleton": 0.02004008016032064,
-      "other_solution": 0.04609218436873747
+      "other_solution": 0.04208416833667335
     },
     "HintGuard: execution OR structure (tau=0.40)": {
       "full": 1.0,
@@ -193,64 +193,64 @@
       "hint": 0.0,
       "hint_snippet": 0.002004008016032064,
       "skeleton": 0.004008016032064128,
-      "other_solution": 0.026052104208416832
+      "other_solution": 0.02004008016032064
     }
   },
   "methods_lenient_policy": {
     "B1 code-presence rule (>=3 code lines)": {
       "TP": 966,
       "FN": 32,
-      "FP": 1024,
-      "TN": 972,
-      "precision": 0.48542713567839196,
+      "FP": 1016,
+      "TN": 980,
+      "precision": 0.4873864783047427,
       "recall": 0.9679358717434869,
-      "F1": 0.646586345381526,
-      "FPR": 0.5130260521042084,
-      "accuracy": 0.6472945891783567
+      "F1": 0.6483221476510067,
+      "FPR": 0.5090180360721442,
+      "accuracy": 0.6499665998663995
     },
     "B2 text similarity (tau=0.50)": {
       "TP": 808,
       "FN": 190,
-      "FP": 71,
-      "TN": 1925,
-      "precision": 0.919226393629124,
+      "FP": 75,
+      "TN": 1921,
+      "precision": 0.9150622876557192,
       "recall": 0.8096192384769539,
-      "F1": 0.8609483217900906,
-      "FPR": 0.03557114228456914,
-      "accuracy": 0.9128256513026052
+      "F1": 0.8591174906964382,
+      "FPR": 0.037575150300601205,
+      "accuracy": 0.9114896459585838
     },
     "HG-a execution check only": {
       "TP": 991,
       "FN": 7,
-      "FP": 0,
-      "TN": 1996,
-      "precision": 1.0,
+      "FP": 2,
+      "TN": 1994,
+      "precision": 0.9979859013091642,
       "recall": 0.9929859719438878,
-      "F1": 0.9964806435394671,
-      "FPR": 0.0,
-      "accuracy": 0.9976619906479626
+      "F1": 0.9954796584630838,
+      "FPR": 0.001002004008016032,
+      "accuracy": 0.996993987975952
     },
     "HG-b structural similarity only (tau=0.35)": {
       "TP": 991,
       "FN": 7,
-      "FP": 35,
-      "TN": 1961,
-      "precision": 0.9658869395711501,
+      "FP": 33,
+      "TN": 1963,
+      "precision": 0.9677734375,
       "recall": 0.9929859719438878,
-      "F1": 0.9792490118577075,
-      "FPR": 0.01753507014028056,
-      "accuracy": 0.9859719438877755
+      "F1": 0.980217606330366,
+      "FPR": 0.016533066132264528,
+      "accuracy": 0.9866399465597863
     },
     "HintGuard: execution OR structure (tau=0.40)": {
       "TP": 995,
       "FN": 3,
-      "FP": 16,
-      "TN": 1980,
-      "precision": 0.9841740850642928,
+      "FP": 13,
+      "TN": 1983,
+      "precision": 0.9871031746031746,
       "recall": 0.996993987975952,
-      "F1": 0.9905425584868094,
-      "FPR": 0.008016032064128256,
-      "accuracy": 0.9936539746158984
+      "F1": 0.992023928215354,
+      "FPR": 0.006513026052104208,
+      "accuracy": 0.9946559786239145
     }
   },
   "count_by_category": {
@@ -263,8 +263,8 @@
     "other_solution": 499
   },
   "latency_ms": {
-    "median": 64.68507699997872,
-    "p95": 169.47461899997052,
-    "max": 4036.0715859999914
+    "median": 59.76036300000942,
+    "p95": 136.7666149999991,
+    "max": 10033.944523000002
   }
 }

@@ -9,7 +9,8 @@ import statistics
 import time
 from multiprocessing import Pool
 
-from hintguard import core, variants as V
+import core
+import variants as V
 
 random.seed(42)
 POS = {"full", "disguised", "partial"}   # strict policy: no solution code, complete or partial
@@ -19,7 +20,7 @@ CATS = ["full", "disguised", "partial", "hint", "hint_snippet", "skeleton", "oth
 
 
 def load():
-    rows = [json.loads(l) for l in open("data/mbpp.jsonl", encoding="utf-8")]
+    rows = [json.loads(l) for l in open("mbpp.jsonl", encoding="utf-8")]
     return {r["task_id"]: r for r in rows}
 
 
@@ -47,7 +48,7 @@ def build_items(tasks, ids):
     keys = list(refs)
     for i in keys:
         r, code = tasks[i], refs[i]
-        other = refs[random.choice([k for k in keys if k != i])]
+        other = refs[random.Random(i).choice([k for k in keys if k != i])]  # fixed per task
         texts = {"full": V.full(code), "hint": V.hint(code), "hint_snippet": V.hint_snippet(code),
                  "skeleton": V.skeleton(code, r["test_list"]), "other_solution": V.other_solution(other)}
         try:
@@ -128,8 +129,8 @@ def main():
     res["count_by_category"] = {c: sum(1 for r in test if r["cat"] == c) for c in CATS}
     ms = [r["ms"] for r in test]
     res["latency_ms"] = {"median": statistics.median(ms), "p95": sorted(ms)[int(0.95 * len(ms))], "max": max(ms)}
-    json.dump(res, open("results/results.json", "w"), indent=2)
-    with open("results/scores_test.csv", "w") as f:
+    json.dump(res, open("results.json", "w"), indent=2)
+    with open("scores_test.csv", "w") as f:
         f.write("task,category,code_lines,text_sim,struct_sim,passes_tests,ms\n")
         for r in test:
             f.write(f"{r['task']},{r['cat']},{r['lines']},{r['text_sim']:.4f},{r['struct_sim']:.4f},{int(r['exec'])},{r['ms']:.1f}\n")
